@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    padding: 2em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2em;
+    width: 80%;
+    max-width: 800px;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50px;
+}
+
+select {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#Matrix1, #Matrix2, #resultMatrix {
+    margin-top: 1em;
+}
+
+.inputField {
+    margin: 0.2em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50px;
+    text-align: center;
+}
+
+#resultMatrix {
+    border-top: 2px solid #ccc;
+    margin-top: 2em;
+    padding-top: 1em;
+    display: none;
+}
+
+#generateFields {
+    margin-top: 2em;
+}
+
+footer {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

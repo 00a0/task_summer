@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Input Fields</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dynamic Input Fields</h1>
+    </header>
+    <main>
+        <div id="operation">
+            <label for="operationSelect">Operation</label>
+            <select id="operationSelect">
+                <option value="Add">Add</option>
+                <option value="Subtract">Subtract</option>
+                <option value="Multiply">Multiply</option>
+            </select>
+            <button id="doOperation">Do operation</button>
+        </div>
+
+        <label for="size1">Enter the size of the first matrix (rows x columns):</label>
+        <input type="number" id="a1" min="1" value="1">
+        <input type="number" id="b1" min="1" value="1">
+
+        <label for="size2">Enter the size of the second matrix (rows x columns):</label>
+        <input type="number" id="a2" min="1" value="1">
+        <input type="number" id="b2" min="1" value="1">
+
+        <div id="Matrix1"></div>
+        <div id="Matrix2"></div>
+
+        <div id="resultMatrix"></div>
+    </main>
+    <footer>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
