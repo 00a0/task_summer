@@ -18,6 +18,21 @@ document.addEventListener('DOMContentLoaded', function() {
             b1Input.value = a2Input.value;
         }
         generateFields();
+        toggleInputFields(operation);
+    }
+
+    function toggleInputFields(operation) {
+        if (operation === 'Add' || operation === 'Subtract') {
+            a2Input.disabled = true;
+            b2Input.disabled = true;
+            a1Input.disabled = false;
+            b1Input.disabled = false;
+        } else if (operation === 'Multiply') {
+            a2Input.disabled = false;
+            b2Input.disabled = false;
+            a1Input.disabled = false;
+            b1Input.disabled = true;
+        }
     }
 
     function generateFields() {
@@ -156,5 +171,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         displayResultMatrix(resultMatrix);
     });
-    generateFields();
+    updateConstraints();
 });
