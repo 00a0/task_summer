@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const container1 = document.getElementById('Matrix1');
     const container2 = document.getElementById('Matrix2');
     const resultContainer = document.getElementById('resultMatrix');
+    const determinant1 = document.getElementById('determinant1');
+    const determinant2 = document.getElementById('determinant2');
 
     function updateConstraints() {
         const operation = operationSelect.value;
@@ -67,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             container2.appendChild(line);
         }
+        displayMatrixDeterminant();
     }
 
     operationSelect.addEventListener('change', updateConstraints);
@@ -82,7 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const rowValues = [];
             const inputs = row.querySelectorAll('input');
             inputs.forEach(input => {
-                rowValues.push(parseFloat(input.value) || 0);
+                const value = parseFloat(input.value);
+                if (isNaN(value)) {
+                    rowValues.push(0);
+                } else {
+                    rowValues.push(value);
+                }
             });
             matrix.push(rowValues);
         });
@@ -170,6 +178,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
         }
         displayResultMatrix(resultMatrix);
+        displayMatrixDeterminant();
     });
+
+    function displayMatrixDeterminant() {
+        const matrix1 = extractMatrixValues(container1);
+        const matrix2 = extractMatrixValues(container2);
+
+        if (matrix1.length === matrix1[0].length) {
+            let determinant;
+            if (matrix1.length === 2) {
+                determinant = matrix1[0][0] * matrix1[1][1] - matrix1[0][1] * matrix1[1][0];
+            } else if (matrix1.length === 3) {
+                determinant = matrix1[0][0] * (matrix1[1][1] * matrix1[2][2] - matrix1[1][2] * matrix1[2][1]) -
+                              matrix1[0][1] * (matrix1[1][0] * matrix1[2][2] - matrix1[1][2] * matrix1[2][0]) +
+                              matrix1[0][2] * (matrix1[1][0] * matrix1[2][1] - matrix1[1][1] * matrix1[2][0]);
+            }
+            determinant1.textContent = `Determinant of Matrix 1: ${determinant}`;
+        }
+        else {
+            determinant1.textContent = '';
+        }
+
+        if (matrix2.length === matrix2[0].length) {
+            let determinant;
+            if (matrix2.length === 2) {
+                determinant = matrix2[0][0] * matrix2[1][1] - matrix2[0][1] * matrix2[1][0];
+            } else if (matrix2.length === 3) {
+                determinant = matrix2[0][0] * (matrix2[1][1] * matrix2[2][2] - matrix2[1][2] * matrix2[2][1]) -
+                              matrix2[0][1] * (matrix2[1][0] * matrix2[2][2] - matrix2[1][2] * matrix2[2][0]) +
+                              matrix2[0][2] * (matrix2[1][0] * matrix2[2][1] - matrix2[1][1] * matrix2[2][0]);
+            }
+            determinant2.textContent = `Determinant of Matrix 2: ${determinant}`;
+        }
+        else {
+            determinant2.textContent = '';
+        }
+    }
+
     updateConstraints();
 });
