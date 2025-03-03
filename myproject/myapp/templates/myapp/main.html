@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="nav-btn active" data-page="1">Главная</button>
+            <button class="nav-btn" data-page="2">Операции с матрицей</button>
+            <button class="nav-btn" data-page="3">Визуализация изменений векторов</button>
+            <button class="nav-btn" data-page="4">Страница 4</button>
+            <button class="nav-btn" data-page="5">Страница 5</button>
+            <button class="nav-btn" data-page="6">Страница 6</button>
+        </nav>
+    </header>
+    <main>
+
+        <div id="page-1" class="page-content active">
+            <h1>Главная страница</h1>
+            <p>Добро пожаловать на наш сайт!</p>
+        </div>
+
+        <div id="page-2" class="page-content">
+            <h1>Операции с матрицей</h1>
+            <div class="matrix-controls">
+                <div class="input-group">
+                    <input type="number" id="matrix-rows" class="matrix-input" 
+                           placeholder="Строки" min="1" value="3">
+                    <span class="multiply-symbol">×</span>
+                    <input type="number" id="matrix-cols" class="matrix-input" 
+                           placeholder="Столбцы" min="1" value="3">
+                </div>
+                
+                <div class="button-group">
+                    <button id="generate-btn" class="matrix-button">Сгенерировать</button>
+                </div>
+                
+                <div class="results-container">
+                    <div class="matrix-section">
+                        <h3>Исходная матрица</h3>
+                        <div id="original-matrix" class="matrix-grid"></div>
+                    </div>
+                    
+                    <div class="matrix-section hidden" id="transposed-section">
+                        <h3>Транспонированная</h3>
+                        <div id="transposed-matrix" class="matrix-grid"></div>
+                    </div>
+                    
+                    <div class="matrix-section hidden" id="determinant-section">
+                        <h3>Определитель</h3>
+                        <div id="determinant-value" class="matrix-value"></div>
+                    </div>
+                    
+                    <div class="matrix-section hidden" id="inverse-section">
+                        <h3>Обратная матрица</h3>
+                        <div id="inverse-matrix" class="matrix-grid"></div>
+                    </div>
+                    
+                    <div class="matrix-section hidden" id="trace-section">
+                        <h3>След матрицы</h3>
+                        <div id="trace-value" class="matrix-value"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-3" class="page-content">
+            <h1>Умножение матрицы на вектор</h1>
+            <div class="matrix-controls">
+                <div class="input-group">
+                    <label>Размер матрицы A:</label>
+                    <input type="number" id="matrix-a-rows" class="matrix-input" value="2" min="1">
+                    <span class="multiply-symbol">×</span>
+                    <input type="number" id="matrix-a-cols" class="matrix-input" value="2" min="1">
+                </div>
+        
+                <div class="results-container">
+                    <div class="matrix-section">
+                        <h3>Матрица A</h3>
+                        <div id="matrix-a" class="matrix-grid"></div>
+                    </div>
+                    
+                    <div class="matrix-section">
+                        <h3>Вектор B</h3>
+                        <div id="vector-b" class="matrix-grid"></div>
+                    </div>
+                    
+                    <div class="matrix-section">
+                        <h3>Результат</h3>
+                        <div id="result-vector" class="matrix-grid"></div>
+                    </div>
+                </div>
+        
+                <div class="threed-section" id="3d-container" style="display: none">
+                    <h3>3D Визуализация</h3>
+                    <div style="width: 200px; height: 200px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-4" class="page-content">
+            <h1>Страница 4</h1>
+            <p>Контент четвертой страницы</p>
+        </div>
+
+        <div id="page-5" class="page-content">
+            <h1>Страница 5</h1>
+            <p>Контент пятой страницы</p>
+        </div>
+
+        <div id="page-6" class="page-content">
+            <h1>Страница 6</h1>
+            <p>Контент шестой страницы</p>
+        </div>
+    </main>
+
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/page1/1.js' %}"></script>
+    <script src="{% static 'js/page2/2.js' %}"></script>
+    <script src="{% static 'js/page3/3.js' %}"></script>
+    <script src="{% static 'js/page4/4.js' %}"></script>
+    <script src="{% static 'js/page5/5.js' %}"></script>
+    <script src="{% static 'js/page6/6.js' %}"></script>
+</body>
+</html>
